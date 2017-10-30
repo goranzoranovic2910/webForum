@@ -1,0 +1,39 @@
+<div class="container">
+  <form class="col-lg-6" (submit)="dodajKorisnika()">
+
+    <h3>Dodaj korisnika</h3>
+    <div id="korisnikIme">
+       <label for="ime" class="sr-only">Ime:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="korisnik.ime" name="ime" placeholder="Ime">
+    </div>
+    <div>
+      <label for="prezime" class="sr-only">Prezime:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="korisnik.prezime" name="prezime" placeholder="Prezime">
+    </div>
+    <div>
+      <label for="korisnickoime" class="sr-only">Korisnicko ime:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="korisnik.korisnickoime" name="korisnickoime" placeholder="Korisnicko ime">
+    </div>
+    <div>
+      <label for="lozinka" class="sr-only">Lozinka:</label>
+       <input type="password" class="form-control col-lg-6" [(ngModel)]="korisnik.lozinka" name="lozinka" placeholder="Lozinka">
+    </div>
+    <div>
+      <label *ngIf="userService.isAdmin()" for="blokiran">Blokiran:</label>
+       <input *ngIf="userService.isAdmin()" type="checkbox" [(ngModel)]="korisnik.blokiran" name="blokiran" placeholder="Blokiran">
+    </div>
+    <div >
+      <label for="blokirando" class="sr-only">Blokiran do:</label>
+       <input *ngIf="userService.isAdmin()" type="date" class="form-control col-lg-6" [(ngModel)]="korisnik.blokirando" name="blokirando" placeholder="Blokiran do">
+    </div>
+    <div >
+      <label for="tip" class="sr-only">Blokiran do:</label>
+      <select *ngIf="userService.isAdmin()" class="form-control col-lg-6" [(ngModel)] = "korisnik.tip" name="tip" id="tip">
+        <option *ngFor="let t of tipovi" [ngValue]="t.id">{{t.ime}}</option>
+      </select>
+    </div>
+
+    <input type="submit" class="btn-primary" value="Dodaj!" />
+
+  </form>
+</div>

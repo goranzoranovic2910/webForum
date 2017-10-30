@@ -1,0 +1,17 @@
+<h2 style="padding:0 0 0 50px;">
+  Kategorije
+</h2>
+
+<div>
+  <input style="margin-left:40px" type="text" [(ngModel)]="keyword" placeholder="Pretraga" />
+<ul>
+  <li *ngFor="let k of kategorije | filterKategorija:keyword" class="list-group-item">
+
+    <h4 class="list-group-item-heading">{{k.naziv}}</h4>
+    <p class="list-group-item-text">{{k.opis}}</p>
+    <a routerLink="/lista-tema/{{k.id}}/{{userService.userId()}}">Prikazi teme</a>
+    <a *ngIf="userService.isAdmin()" routerLink="/izmeni-kategoriju/{{k.id}}">Izmeni</a>
+    <a *ngIf="userService.isAdmin()" routerLink="/izbrisi-kategoriju/{{k.id}}">Obrisi</a>
+  </li>
+</ul>
+</div>

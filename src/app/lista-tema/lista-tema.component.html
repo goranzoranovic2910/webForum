@@ -1,0 +1,21 @@
+<h2  style="padding:0 0 0 50px;">
+  Teme
+</h2>
+
+<div>
+  <ul class="nav nav-pills"  style="padding:0 0 0 25px;">
+    <li><a routerLink="/nova-tema/{{novaTema.kategorijaid}}/{{novaTema.korisnikid}}">Nova tema</a></li>
+  </ul>
+  <input style="margin-left:40px" type="text" [(ngModel)]="keyword" placeholder="Pretraga" />
+  <ul>
+    <li *ngFor="let t of teme | filterTema:keyword" class="list-group-item">
+      <h4 class="list-group-item-heading">{{t.naziv}}</h4>
+      <p class="list-group-item-text">{{t.opis}}</p>
+      <a routerLink="/lista-komentara/{{t.id}}/{{t.korisnikid}}">Pregled</a>
+      <a *ngIf="userService.userId()==t.korisnikid || userService.isAdmin()" routerLink="/izmeni-temu/{{t.id}}">Izmeni</a>
+      <a *ngIf="userService.userId()==t.korisnikid || userService.isAdmin()" routerLink="/izbrisi-temu/{{t.id}}">Obrisi</a>
+      <a *ngIf="userService.isAdmin()" routerLink="/izmeni-korisnika/{{t.korisnikid}}">Proveri korisnika</a>
+    </li>
+  </ul>
+
+</div>

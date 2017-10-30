@@ -1,0 +1,23 @@
+<div class="container">
+
+  <form  class="col-lg-6"  (submit)="izmeniTemu()">
+    <h3>Izmenite temu</h3>
+    <div id="id">
+       <input type="hidden" [(ngModel)]="tema.id" name="id">
+    </div>
+
+    <div id="nazivTeme">
+       <label class="sr-only" for="naziv">Naziv:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="tema.naziv" name="naziv" placeholder="Naziv">
+    </div>
+    <br>
+    <div id="OpisTeme">
+       <label class="sr-only" for="opis">Opis:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="tema.opis" name="opis" placeholder="Opis">
+    </div>
+
+    <input type="submit" class="btn-primary" value="Izmeni!" />
+
+  </form>
+
+</div>

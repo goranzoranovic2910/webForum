@@ -1,0 +1,21 @@
+<h2 style="padding:0 0 0 50px;">
+  Komentari na temu
+</h2>
+
+<div>
+  <ul class="nav nav-pills"  style="padding:0 0 0 25px;">
+    <li><a routerLink="/novi-komentar/{{noviKomentar.temaid}}/{{noviKomentar.korisnikid}}">Dodaj komentar</a></li>
+  </ul>
+  <input style="margin-left:40px" type="text" [(ngModel)]="keyword" placeholder="Pretraga" />
+  <ul>
+    <li *ngFor="let k of komentari | filterKomentara:keyword" class="list-group-item">
+      <p class="list-group-item-text">{{k.tekst}}</p>
+      <p class="list-group-item-text">{{k.korisnickoime}}</p>
+      <a *ngIf="userService.userId()==k.korisnikid || userService.isAdmin()" routerLink="/izmeni-komentar/{{k.id}}">Izmeni</a>
+      <a *ngIf="userService.userId()==k.korisnikid || userService.isAdmin()" routerLink="/izbrisi-komentar/{{k.id}}">Obrisi</a>
+      <a *ngIf="userService.isAdmin()" routerLink="/izmeni-korisnika/{{k.korisnikid}}">Proveri korisnika</a>
+    </li>
+  </ul>
+
+
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+  <form class="col-lg-4" (submit)="izmeniKategoriju()">
+    <h3>Izmenite kategoriju</h3>
+    <div id="id">
+       <input type="hidden" [(ngModel)]="kategorija.id" name="id">
+    </div>
+
+    <div id="nazivKat">
+       <label class="sr-only" for="naziv">Naziv:</label>
+       <input type="text" class="form-control col-lg-4" [(ngModel)]="kategorija.naziv" name="naziv" placeholder="Naziv">
+    </div>
+    <br>
+    <div id="OpisKategorije">
+       <label class="sr-only" for="opis">Opis:</label>
+       <input type="text" class="form-control col-lg-4" [(ngModel)]="kategorija.opis" name="opis" placeholder="Opis">
+    </div>
+
+    <input type="submit" class="btn-primary" value="Izmeni!" />
+
+  </form>
+</div>

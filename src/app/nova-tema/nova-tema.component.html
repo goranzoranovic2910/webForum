@@ -1,0 +1,23 @@
+<div class="container">
+<form class="col-lg-6" (submit)="dodajTemu()">
+  <h3>Dodaj novu temu</h3>
+  <div id="nazivTeme">
+     <label class="sr-only" for="naziv">Naziv:</label>
+     <input class="form-control col-lg-6" type="text" [(ngModel)]="tema.naziv" name="naziv" placeholder="Naziv">
+  </div>
+  <br>
+  <div id="OpisTeme">
+     <label class="sr-only" for="opis">Opis:</label>
+     <input class="form-control col-lg-6" type="text" [(ngModel)]="tema.opis" name="opis" placeholder="Opis">
+  </div>
+  <div id="KategorijaTeme">
+     <input type="hidden" [(ngModel)]="tema.kategorijaid" name="kategorijaid">
+  </div>
+  <div id="Korisnik">
+     <input type="hidden" [(ngModel)]="tema.korisnikid" name="korisnikid">
+  </div>
+
+  <input type="submit" class="btn-primary" value="Dodaj!" />
+
+</form>
+</div>

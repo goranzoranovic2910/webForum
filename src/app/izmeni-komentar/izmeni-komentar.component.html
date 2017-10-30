@@ -1,0 +1,20 @@
+<p>
+  Izmeni komentar
+</p>
+
+<form (submit)="izmeniKomentar()">
+
+  <div id="Tema">
+     <input type="hidden" [(ngModel)]="komentar.temaid" name="temaid">
+  </div>
+  <br>
+  <div id="Korisnik">
+     <input type="hidden" [(ngModel)]="komentar.korisnikid" name="korisnikid">
+  </div>
+  <div id="Tekst">
+     <input type="text" [(ngModel)]="komentar.tekst" name="tekst">
+  </div>
+
+  <input type="submit" value="Izmeni!" />
+
+</form>

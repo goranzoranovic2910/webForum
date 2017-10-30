@@ -1,0 +1,19 @@
+<div class="container">
+
+  <form class="form-signin col-lg-6" (submit)="dodajKategoriju()">
+    <h3>Unesite novu kategoriju</h3>
+    <div id="nazivKat">
+       <label class="sr-only" for="naziv">Naziv:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="kategorija.naziv" name="naziv" placeholder="Naziv">
+    </div>
+    <br>
+    <div id="OpisKategorije">
+       <label class="sr-only" for="opis">Opis:</label>
+       <input type="text" class="form-control col-lg-6" [(ngModel)]="kategorija.opis" name="opis" placeholder="Opis">
+    </div>
+
+    <input type="submit" class="btn-primary" value="Dodaj!" />
+
+  </form>
+
+</div>

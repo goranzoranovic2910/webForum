@@ -1,0 +1,44 @@
+<div class="container">
+  <form class="col-lg-6" (submit)="izmeniKorisnika()">
+    <h3>Izmeni podatke o korisniku</h3>
+    <div id="korisnikId">
+       <input type="hidden" [(ngModel)]="korisnik.id" name="id">
+    </div>
+    <br>
+    <div id="korisnikIme">
+       <label class="sr-only" for="ime">Ime:</label>
+       <input class="form-control col-lg-6" type="text" [(ngModel)]="korisnik.ime" name="ime" placeholder="Ime">
+    </div>
+    <div>
+      <label class="sr-only" for="prezime">Prezime:</label>
+       <input class="form-control col-lg-6" type="text" [(ngModel)]="korisnik.prezime" name="prezime" placeholder="Prezime">
+    </div>
+    <div>
+      <label class="sr-only" for="korisnickoime">Korisnicko ime:</label>
+       <input class="form-control col-lg-6" type="text" [(ngModel)]="korisnik.korisnickoime" name="korisnickoime" placeholder="Korisnicko ime">
+    </div>
+    <div>
+      <label class="sr-only" for="lozinka">Lozinka:</label>
+       <input class="form-control col-lg-6" type="password" [(ngModel)]="korisnik.lozinka" name="lozinka" placeholder="Lozinka">
+    </div>
+    <div >
+      <label for="blokiran">Blokiran:</label>
+       <input type="checkbox" [(ngModel)]="korisnik.blokiran" name="blokiran">
+    </div>
+    <div >
+      <label class="sr-only" for="blokirando">Blokiran do:</label>
+       <input class="form-control col-lg-6" type="date" [(ngModel)]="korisnik.blokirando" name="blokirando" placeholder="Datum">
+    </div>
+    <div >
+      <label class="sr-only" for="tip">Tip:</label>
+
+      <select class="form-control col-lg-6" [compareWith]="compareTip" [(ngModel)] = "korisnik.tip" name="tip" id="tip">
+        <option *ngFor="let t of tipovi" [ngValue]="t.id">{{t.ime}}</option>
+      </select>
+
+    </div>
+
+    <input type="submit" class="btn-primary" value="Izmeni!" />
+
+  </form>
+</div>
